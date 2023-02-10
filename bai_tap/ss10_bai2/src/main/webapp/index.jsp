@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 10/2/2023
-  Time: 3:18 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,12 +21,12 @@
             </td>
         </tr>
         <tr>
-            <td></td>
+            <td><label>Operator</label></td>
             <td><select name="operator" id="operator">
-                <option value="Cong">Addition</option>
-                <option value="Tru">Subtraction</option>
-                <option value="Nhan">Multiplication</option>
-                <option value="Chia">Division</option>
+                <option value="Addition">Addition</option>
+                <option value="Subtraction">Subtraction</option>
+                <option value="Multiplication">Multiplication</option>
+                <option value="Division">Division</option>
             </select></td>
         </tr>
         <tr>
