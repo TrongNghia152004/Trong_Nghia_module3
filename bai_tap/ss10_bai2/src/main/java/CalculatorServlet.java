@@ -12,12 +12,12 @@ public class CalculatorServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        double n1 = Double.parseDouble(request.getParameter("firstNumber"));
-        double n2 = Double.parseDouble(request.getParameter("secondNumber"));
+        double firstNumber = Double.parseDouble(request.getParameter("firstNumber"));
+        double secondNumber = Double.parseDouble(request.getParameter("secondNumber"));
         String operator = request.getParameter("operator");
         double result = 0;
         try {
-            result = Calculator.calculate(n1, operator , n2);
+            result = Calculator.calculate(firstNumber, operator , secondNumber);
             request.setAttribute("result", result);
         } catch (NumberFormatException e) {
             e.printStackTrace();

@@ -1,18 +1,18 @@
 public class Calculator {
 
-    public static double calculate(double n1, String operator, double n2) {
+    public static double calculate(double firstNumber, String operator, double secondNumber) {
         switch (operator) {
             case "Addition":
-                return n1 + n2;
+                return firstNumber + secondNumber;
             case "Subtraction":
-                return n1 - n2;
+                return firstNumber - secondNumber;
             case "Multiplication":
-                return n1 * n2;
+                return firstNumber * secondNumber;
             case "Division":
-                if (n2 == 0) {
+                if (secondNumber == 0) {
                     throw new NumberFormatException();
                 } else {
-                    return n1 / n2;
+                    return firstNumber / secondNumber;
                 }
             default:
                 return 0;
