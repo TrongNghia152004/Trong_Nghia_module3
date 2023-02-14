@@ -11,9 +11,9 @@
 <head>
     <title>Title</title>
 </head>
+<link rel="stylesheet" href="/css/bootstrap.css">
 <body>
 <table class="table">
-    <thead>
     <tr>
         <th>Id</th>
         <th>Tên sản phẩm</th>
@@ -21,8 +21,6 @@
         <th>Chi tiết sản phẩm</th>
         <th>Nhà sản xuất</th>
     </tr>
-    </thead>
-    <tbody>
     <c:forEach var="product" items="${productList}">
         <tr>
             <td>${product.id}</td>
@@ -34,7 +32,7 @@
             <td><a href="/product?actionUser=delete&id=${product.id}" class="btn btn-danger">Xoá</a></td>
         </tr>
     </c:forEach>
-    </tbody>
 </table>
+<script src="/js/bootstrap.js"></script>
 </body>
 </html>

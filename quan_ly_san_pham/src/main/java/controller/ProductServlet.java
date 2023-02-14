@@ -185,10 +185,4 @@ public class ProductServlet extends HttpServlet {
             }
         }
     }
-    private void searchForm(HttpServletRequest request, HttpServletResponse response) {
-
-    }
-
-
-
 }

@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+<link rel="stylesheet" href="/css/bootstrap.css">
 <body>
 <form action="" method="post">
     <h1>Xóa thông tin của sản phẩm ${product.name}</h1>
@@ -33,5 +34,6 @@
     </table>
     <input type="submit" value="Xoá nè">
 </form>
+<script src="/js/bootstrap.js"></script>
 </body>
 </html>
