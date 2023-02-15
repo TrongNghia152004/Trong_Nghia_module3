@@ -6,7 +6,7 @@ import repository.UserDAO;
 
 import java.util.List;
 
-public class UserService implements IUserService{
+public class UserService implements IUserService {
     private IUserDAO userDAO = new UserDAO();
 
     @Override
@@ -16,21 +16,21 @@ public class UserService implements IUserService{
 
     @Override
     public void create(User user) {
-
+        userDAO.create(user);
     }
 
     @Override
     public User findById(int id) {
-        return null;
+        return userDAO.findById(id);
     }
 
     @Override
     public void update(User user) {
-
+        userDAO.update(user);
     }
 
     @Override
-    public void delete(User user) {
-
+    public void delete(int id) {
+        userDAO.delete(id);
     }
 }

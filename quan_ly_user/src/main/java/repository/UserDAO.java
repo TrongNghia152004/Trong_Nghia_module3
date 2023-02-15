@@ -40,8 +40,10 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void create(User user) {
+        PreparedStatement preparedStatement;
         try {
-            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement("insert into users (name,email,country) values (?,?,?);");
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("insert into users (name,email,country) values (?,?,?);");
             preparedStatement.setString(1,user.getName());
             preparedStatement.setString(2,user.getEmail());
             preparedStatement.setString(3,user.getCountry());
@@ -53,8 +55,10 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public User findById(int id) {
+        PreparedStatement preparedStatement = null;
         try {
-            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement("select * from users where id = ?;");
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("select id, name , email , country from users where id = ? order by name");
             preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -76,11 +80,31 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void update(User user) {
-
+    PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection().prepareStatement("update users\n" +
+                    "set name = ?, email = ?, country = ? \n" +
+                    "where id = ?");
+            preparedStatement.setString(1,user.getName());
+            preparedStatement.setString(2,user.getEmail());
+            preparedStatement.setString(3,user.getCountry());
+            preparedStatement.setInt(4, user.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
-    public void delete(User user) {
-
+    public void delete(int id) {
+    PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("delete from users where id = ?");
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

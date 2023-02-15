@@ -13,53 +13,26 @@
     <title>User Management Application</title>
 </head>
 <body>
-<center>
     <h1>User Management</h1>
-    <h2>
-        <a href="users?action=users">List All Users</a>
-    </h2>
-</center>
 <div align="center">
     <form method="post">
-        <table border="1" cellpadding="5">
-            <caption>
-                <h2>
-                    Edit User
-                </h2>
-            </caption>
-            <c:if test="${user != null}">
-                <input type="hidden" name="id" value="<c:out value='${user.id}' />"/>
-            </c:if>
-            <tr>
-                <th>User Name:</th>
-                <td>
-                    <input type="text" name="name" size="45"
-                           value="<c:out value='${user.name}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <th>User Email:</th>
-                <td>
-                    <input type="text" name="email" size="45"
-                           value="<c:out value='${user.email}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <th>Country:</th>
-                <td>
-                    <input type="text" name="country" size="15"
-                           value="<c:out value='${user.country}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
-                </td>
-            </tr>
-        </table>
+        <h1> Edit User </h1>
+        <div>
+            <input type="hidden" value="${user.id}">
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="${user.name}">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="${user.email}">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" value="${user.country}">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Cập nhật">
     </form>
 </div>
 </body>
