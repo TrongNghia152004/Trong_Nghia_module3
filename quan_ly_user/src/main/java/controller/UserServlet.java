@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", value = "/users")
@@ -33,6 +34,10 @@ public class UserServlet extends HttpServlet {
                 break;
             case "delete":
                 deleteUser(request,response);
+            case "search":
+                searchUser(request,response);
+            case "sort":
+                sortByNameUser(request,response);
             default:
                 break;
         }
@@ -136,5 +141,25 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+    private void searchUser(HttpServletRequest request, HttpServletResponse response){
+        String country = request.getParameter("country");
+        List<User> userList = iUserService.search(country);
+        request.setAttribute("userList" , userList);
+        try {
+            request.getRequestDispatcher("/view/search.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void sortByNameUser(HttpServletRequest request, HttpServletResponse response) {
+        List<User> userList = iUserService.sort();
+        request.setAttribute("userList", userList);
+            try {
+                request.getRequestDispatcher("view/sort.jsp").forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        }
 }

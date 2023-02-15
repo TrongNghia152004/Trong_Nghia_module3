@@ -14,18 +14,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="text-center">User Management</h1>
-<h2>
-    <a href="/users?action=create">Add New User</a>
-</h2>
-<h2 class="text-center">List of Users</h2>
-<form class="d-flex" role="search" method="post" action="users?action=sort">
-    <button class="btn btn-outline-success" type="submit">Sort by name user</button>
-</form>
-<form class="mb-3" action="/users?action=search" method="post">
-    <input type="text" name="country" id="country">
-    <input type="submit" value="Tìm kiếm" class="btn btn-primary">
-</form>
+<form action="" method="post">
 <table class="table">
     <tr>
         <th>ID</th>
@@ -34,7 +23,7 @@
         <th>Country</th>
         <th>Actions</th>
     </tr>
-    <c:forEach var="user" items="${listUser}">
+    <c:forEach var="user" items="${userList}">
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
@@ -52,6 +41,7 @@
         </tr>
     </c:forEach>
 </table>
+</form>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -14,44 +14,34 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="text-center">User Management</h1>
-<h2>
-    <a href="/users?action=create">Add New User</a>
-</h2>
-<h2 class="text-center">List of Users</h2>
-<form class="d-flex" role="search" method="post" action="users?action=sort">
-    <button class="btn btn-outline-success" type="submit">Sort by name user</button>
-</form>
-<form class="mb-3" action="/users?action=search" method="post">
-    <input type="text" name="country" id="country">
-    <input type="submit" value="Tìm kiếm" class="btn btn-primary">
-</form>
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Country</th>
-        <th>Actions</th>
-    </tr>
-    <c:forEach var="user" items="${listUser}">
+<form action="" method="post">
+    <table class="table">
         <tr>
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.country}</td>
-            <td>
-                <a href="/users?action=edit&id=${user.id}">Edit</a>
-            </td>
-            <td>
-                <button type="button" onclick="deleteUser('${user.id}','${user.name}')" class="btn btn-danger"
-                        data-toggle="modal" data-target="#exampleModal">
-                    Delete
-                </button>
-            </td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Actions</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach var="user" items="${userList}">
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.country}</td>
+                <td>
+                    <a href="/users?action=edit&id=${user.id}">Edit</a>
+                </td>
+                <td>
+                    <button type="button" onclick="deleteUser('${user.id}','${user.name}')" class="btn btn-danger"
+                            data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</form>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -93,3 +83,4 @@
             crossorigin="anonymous"></script>
 </body>
 </html>
+

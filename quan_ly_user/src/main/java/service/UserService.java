@@ -33,4 +33,14 @@ public class UserService implements IUserService {
     public void delete(int id) {
         userDAO.delete(id);
     }
+
+    @Override
+    public List<User> search(String country) {
+        return userDAO.search(country);
+    }
+
+    @Override
+    public List<User> sort() {
+        return userDAO.sort();
+    }
 }

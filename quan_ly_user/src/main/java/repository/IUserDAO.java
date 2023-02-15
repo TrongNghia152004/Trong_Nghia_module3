@@ -14,4 +14,8 @@ public interface IUserDAO {
  void update(User user);
 
  void delete(int id);
+
+ List<User> search(String country);
+
+ List<User> sort();
 }
