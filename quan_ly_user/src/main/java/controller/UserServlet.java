@@ -128,7 +128,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response){
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("deleteId"));
         iUserService.delete(id);
         try {
             response.sendRedirect("/users");
