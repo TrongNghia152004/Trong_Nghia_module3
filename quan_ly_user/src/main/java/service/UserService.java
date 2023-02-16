@@ -1,13 +1,13 @@
 package service;
 
 import model.User;
-import repository.IUserDAO;
-import repository.UserDAO;
+import repository.IUserRepository;
+import repository.UserRepository;
 
 import java.util.List;
 
 public class UserService implements IUserService {
-    private IUserDAO userDAO = new UserDAO();
+    private IUserRepository userDAO = new UserRepository();
 
     @Override
     public List<User> findAll() {

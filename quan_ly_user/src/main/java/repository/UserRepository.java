@@ -1,14 +1,12 @@
 package repository;
 
 import model.User;
-import repository.BaseRepository;
-import repository.IUserDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO implements IUserDAO {
+public class UserRepository implements IUserRepository {
 
     @Override
     public List<User> findAll() {

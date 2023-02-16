@@ -4,7 +4,7 @@ import model.User;
 
 import java.util.List;
 
-public interface IUserDAO {
+public interface IUserRepository {
  List<User> findAll();
 
  void create(User user);

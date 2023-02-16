@@ -1,6 +1,5 @@
 package controller;
 
-import repository.UserDAO;
 import model.User;
 import service.IUserService;
 import service.UserService;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", value = "/users")
